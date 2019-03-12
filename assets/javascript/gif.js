@@ -40,23 +40,24 @@ function populateGIFContainer(show){
 		response.data.forEach(function(element){
 			newDiv = $("<div>");
 			newDiv.addClass("individual-gif-container");
-			var newImage = $("<img src = '" + element.images.fixed_height_still.url + "'>");
+			var newImage = $("<img src = '" + element.images.fixed_height_still.url + "'>");//navigating to gif
 			newImage.addClass("gif-image");
-			newImage.attr("state", "still");
+			newImage.attr("state", "still"); //adding an attribute to the gif to make it still
 			newImage.attr("still-data", element.images.fixed_height_still.url);
 			newImage.attr("animated-data", element.images.fixed_height.url);
-			newDiv.append(newImage);
-			$("#gif-container").append(newDiv);
+			newDiv.append(newImage); //add our new image variable to the div
+			$("#gif-container").append(newDiv);// append the new div to the gif container and the gif will appear
 		});
 		
-		
+		//unbind the still gif image onclick and animate
 		$(".gif-image").unbind("click");
 		$(".gif-image").on("click", function(){
 			if($(this).attr("state") === "still") {
 				$(this).attr("state", "animated");
 				$(this).attr("src", $(this).attr("animated-data"));
-			}
-			else {
+            }
+            //onclick make gif still
+			else { 
 				$(this).attr("state", "still");
 				$(this).attr("src", $(this).attr("still-data"));
 			}
