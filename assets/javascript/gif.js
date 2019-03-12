@@ -11,15 +11,14 @@ function renderButtons(){
         //cartoon becomes player
 		newButton.addClass("player-button");
 		newButton.text(topics[i]);
-		$("#button-container").append(newButton); //populate the id called button container with all the new buttons
+		$("#button-container").append(newButton); //add the bottom of the id called button container with all the new buttons
 	}
 	$(".player-button").unbind("click"); //remove the click function from the button
 
 	$(".player-button").on("click", function(){
 		$(".gif-image").unbind("click"); //remove the click function from the button
 		$("#gif-container").empty();
-		$("#gif-container").removeClass("dotted-border");
-		populateGIFContainer($(this).text());
+		populateGIFContainer($(this).text());//populate the gif containor with the gifs
 	});
 
 }
@@ -35,7 +34,7 @@ function addButton(player){
 function populateGIFContainer(show){
 	$.ajax({
 		url: "https://api.giphy.com/v1/gifs/search?q=" + show + 
-		"&api_key=61TKqzUDPHfv40Bqr6iEsqqBCfa360mt&rating=" + "&limit=" + numberOfGIFs,
+		"&api_key=sNb8jMRIMDegPsLm9HcWS7L1U7tOCE0d&rating=" + "&limit=" + numberOfGIFs,
 		method: "GET"
 	}).then(function(response){
 		response.data.forEach(function(element){
