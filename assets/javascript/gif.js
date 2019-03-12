@@ -25,7 +25,7 @@ function renderButtons(){
 
 function addButton(player){
 	if(topics.indexOf(player) === -1) {
-		topics.push(player);
+		topics.push(player);//push a new player button into the array
 		$("#button-container").empty();
 		renderButtons();// render a button when player name is added to text field and push
 	}
@@ -49,7 +49,7 @@ function populateGIFContainer(show){
 			$("#gif-container").append(newDiv);
 		});
 		
-		//$("#gif-container").addClass("dotted-border");
+		
 		$(".gif-image").unbind("click");
 		$(".gif-image").on("click", function(){
 			if($(this).attr("state") === "still") {
